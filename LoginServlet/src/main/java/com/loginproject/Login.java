@@ -30,3 +30,9 @@ public class Login extends HttpServlet{
 	}
 
 }
+
+
+
+
+
+//Resource ::https://www.javatpoint.com/requestdispatcher-in-servlet

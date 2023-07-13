@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class AddNum extends HttpServlet {
 	
@@ -53,10 +55,28 @@ public class AddNum extends HttpServlet {
 		int i=Integer.parseInt(req.getParameter("num1"));
 		int j=Integer.parseInt(req.getParameter("num2"));
 		int k=i+j;
-		k=k*k;
 		
-		RequestDispatcher rd=req.getRequestDispatcher("sq");
-		rd.forward(req, res);
+		//this is using session tracking 
+//		HttpSession session=req.getSession();
+//		session.setAttribute("k",k); //(name,value)
+//		res.sendRedirect("sq");
+		
+		
+		//this is using sendRedirect
+//		res.sendRedirect("sq?k="+k); //url rewriting 
+		
+		
+		//this is using RequestDispacther 
+//		req.setAttribute("k", k);			
+//		RequestDispatcher rd=req.getRequestDispatcher("sq");
+//		rd.forward(req, res);
+		
+		
+		
+		//using Cookie
+		Cookie cookie=new Cookie("k",k+"");//(name,value)-->value should be String
+		res.addCookie(cookie);
+		res.sendRedirect("sq");
 	}
 
 }
