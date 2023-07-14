@@ -20,4 +20,30 @@
 	<servlet-name>pqr</servlet-name>
 	<url-pattern>/sq</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>context</servlet-name>
+	<servlet-class>com.testservlet.MyServletContextConfig</servlet-class>
+	
+	<init-param>
+		<param-name>name</param-name>
+		<param-value>sneha mathadawar</param-value>
+	</init-param>
+	
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>context</servlet-name>
+	<url-pattern>/context</url-pattern>
+</servlet-mapping>
+
+<context-param>
+	<param-name>name</param-name>
+	<param-value>Sneha</param-value>
+</context-param>
+
+<context-param>
+	<param-name>greeting</param-name>
+	<param-value>Good morning</param-value>
+</context-param>
 </web-app>
